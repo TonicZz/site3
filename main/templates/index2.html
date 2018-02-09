@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title>Asspirin</title>
+
+	<link href="site3/assets/css/style.css" rel="stylesheet">
+</head>
+<body>
+	<style>
+		.wrapper{
+			width: 1000px;
+			margin: 0 auto;
+		}
+		.wrapper .header{
+			width: 100%;
+			min-height: 40px;
+			background: #eee;
+		}
+		.wrapper .body{
+			display: flex;
+			flex-direction: row;
+			width: 100%;
+			min-height: 600px;
+			background: #ccc;
+			font-size: 0px;
+		}
+		.wrapper .body .left{
+			width: 300px;
+			min-height: 600px;
+			background: yellow;
+			display: inline-block;
+			vertical-align: top;
+			font-size: 20px;		
+		}
+		.wrapper .body .left a{
+			display: block;
+			text-decoration: none;
+			color: initial;
+			
+		}
+		.wrapper .body .left ul{
+			list-style: none;
+			padding-left: 0px;
+		}
+		.wrapper .body .left li{
+			border: 1px solid black;
+			margin: 10px 20px;
+			cursor: pointer;
+			padding: 8px;
+
+		}
+		.wrapper .body .main{
+			width: 660px;
+			margin-left: 50px;
+			min-height: 600px;
+			background: green;
+			display: flex;
+			flex-direction: row;
+			justify-content: space-around;
+			font-size: 0;
+		}
+		.wrapper .body .main .item{
+			display: flex;
+			flex-direction: column;
+			background: red;
+			margin-top: 10px;
+			width: 100px;
+			height: 150px;
+			min-width: 50px;
+			text-decoration: none;
+		}
+		.wrapper .body .main .item img{
+			width: 100px;
+			height: 100px;
+			display: block;
+		}
+		.wrapper .body .main .item span{
+			color: #fff;
+		}
+		.wrapper .body .main .item .title{
+			font-size: 14px;
+			display: block;
+			margin-top: 5px;
+		}
+		.wrapper .body .main .item .price{
+			font-size: 14px;
+			display: block;
+			margin-top: 5px;
+		}
+	</style>
+	<div class="wrapper">
+		<div class="header"><h1>Asspirin Production</h1></div>
+		<div class="body">
+			<div class="left">
+				<ul>
+					{% for item in menu_items %}
+					<li>
+						<a href="{{item.link}}"> 
+							{{item.name}}
+					</li>
+					{% endfor %}	
+				</ul>
+			</div>
+			<div class="main">
+				{% for tovar in tovars %}
+				<a class="item" href="/item/{{tovar.alias}}">
+					<img src="{{tovar.image}}" alt="">
+					<span class="title">{{tovar.name}}</span>
+					<span class="price">{{tovar.price}}</span>
+				</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</body>
+</html>

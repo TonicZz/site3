@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	
+	<link rel="stylesheet" href="static/css2/reset.css">
+	<link rel="stylesheet" href="static/css2/style2.css">
+	<title>{{sitename}}</title>
+</head>
+<body>
+	<div class="wrapper">
+		<div class="name">{{subject}}</div>
+		<div class="func">Function</div>
+		<div class="podv">Podval</div>
+		<div class="menu">
+			<ul class="knop">
+				{% for item in menu_items %}
+				<li>
+					<a href="{{item.link}}"> 
+						{{item.name}}
+					</a>
+					<ul class="dropdown">
+					{% for pun in item.pun %}
+						<li>
+							<a href="{{item.link}}{{pun}}/">
+								{{pun}}	
+							</a>
+						</li>
+					{% endfor %}
+					</ul>
+				</li>
+				{% endfor %}	
+			</ul>
+		</div>
+		
+		<div class="header"><h1>{{sitename}}</h1></div>
+	</div>
+</body>
+</html>
